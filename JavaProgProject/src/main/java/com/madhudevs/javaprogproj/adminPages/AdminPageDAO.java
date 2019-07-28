@@ -91,7 +91,7 @@ public class AdminPageDAO {
 			int totalCountOfPagesRequired=(totalProgCount+bean.getPerPageCount()-1)/bean.getPerPageCount();
 			bean.setTotalCountofPages(totalCountOfPagesRequired);
 		    if (totalProgCount>0) {
-		    	programsList=new LinkedList<>();
+		    	programsList=new LinkedList<LinkedList<String>>();
 		    	LinkedList<String> programHeaderList=new LinkedList<>();
 		    	programHeaderList.add("ID");
 		    	programHeaderList.add("Program Name");

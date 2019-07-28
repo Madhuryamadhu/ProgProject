@@ -57,7 +57,7 @@ public class UserPagesDAO {
 			 Query<Object[]> q=session.createQuery(cr);
 	         List<Object[]> list=q.getResultList();
 
-	         programMap=new HashMap<>();
+	         programMap=new HashMap<Integer, String>();
 	         for (Object[] objects : list) {
 	        	 bean.setProgId((Integer)objects[0]);
 	        	 bean.setProgName((String)objects[1]);

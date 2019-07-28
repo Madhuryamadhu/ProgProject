@@ -30,19 +30,6 @@ public class CommonFunctions {
 	}
 
 	
-	public String getUniqueId() {
-		long prefix = 0;
-		String suffix="";
-		String uniqueID="";
-		try {
-			suffix =new String(Base64.getDecoder().decode("MTkwNQ==".getBytes()));
-			prefix= (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
-			uniqueID =suffix+prefix+"";
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return uniqueID;
-	}
 	
 	public Date getDateFromString(String dateString,String formatString) {
 		Date date=null;
