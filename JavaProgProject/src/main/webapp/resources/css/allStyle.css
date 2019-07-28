@@ -1,0 +1,564 @@
+
+/*----------------------------------------------------------- General CSS -----------------------------------------------------------------------------*/
+
+body {
+	background-color:#E6EBE0 !important;
+	background-position:center;
+	background-repeat:repeat-y;
+	font-family: "Lucida Grande","Lucida Sans Unicode",geneva,verdana,sans-serif;
+	font-size:10px;
+	color:#777;
+}
+
+/* Create Button on table */
+button.createBtnTable {
+    width: 140px;
+    float: right;
+    margin-bottom: 2px;
+	margin-top: 10px;
+	color:white !important;
+	border-color: black;
+	background-color: black;
+}
+
+button.createBtnTable:hover {
+  background-color: white;
+  color: black !important;
+}
+
+/* Header and Footer CSS */
+.headerFooterDiv {
+	background-color:black;
+	border-top:2px solid #ccc;
+}
+.headerFooterDiv h1 {
+	text-align:left;
+	font-family:Trebuchet MS, Geneva, Arial, Helvetica, sans-serif;
+	font-size:30px;
+	color:#333;
+	margin:0;
+	font-weight:normal;
+}
+.headerFooterDiv h1 strong {
+	color:#A85BA6;
+}
+.headerFooterDiv h1 a {
+	color: #fff;
+	text-decoration:none;
+}
+.headerFooterDiv h2 {
+	font-size:11px;
+	font-weight:normal;
+	text-align:left;
+	color:#fff;
+	padding-left: 31px;
+}
+.headerFooterDiv ul {
+	margin:20px 0 0 0;
+	padding:0;
+}
+
+.footerDiv{
+	color:white;
+}
+
+/*---------------------------------------
+   Social icon             
+-----------------------------------------*/
+
+.social-icon {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+	 margin-top: 0px !important;
+}
+
+.social-icon li {
+    display: inline-block;
+    list-style: none;
+}
+
+.social-icon li a {
+    border: 2px solid white;
+    color: white;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    margin: 22px 12px 10px 12px;
+}
+
+.social-icon li a:hover {
+    border-color: #bfba55;
+    color: #bfba55;
+    transform: scale(1.1);
+}
+
+/* Logo Image CSS */
+.logoImage{
+	 border-radius: 50%;
+}
+
+
+/*----------------------------------------------------------------- USER Pages Specific CSS ------------------------------------------------------------*/
+/* User Page Contenet Div  */
+.progContentDiv {
+	margin:10px 10px 15px 0px;
+	border-radius: 5px;
+	background-color:#FFFFFF; 
+	box-shadow: 10px 10px 5px grey;
+}
+
+.progContentDiv h1 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    color: #A85BA6;
+}
+
+.progFilterDiv{
+	background-color:#FFFFFF; 
+	border-radius: 5px; 
+	box-shadow: 10px 10px 5px grey; 
+	margin-top: 10px;
+}
+/* User Page Filter Submit Button  */
+.filterSubmitBtn{
+    margin: 24px 0px;
+	 width: 100%;
+}
+
+/* User Page Sidebar Div  */
+.sidebarDiv{
+	background-color:#FFFFFF; 
+	border-radius: 5px; 
+	box-shadow: 10px 10px 5px grey; 
+	height: auto; 
+	margin-top: 10px;
+    margin-bottom: 15px;
+}
+.sidebarDiv h1{
+    color: #A85BA6;
+    font-size: 22px;
+}
+
+
+/* User Page Table */
+.userTable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.userTable td, .userTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.userTable tr:nth-child(even){background-color: #f2f2f2;}
+
+.userTable tr:hover {background-color: #ddd;}
+
+.userTable th {
+  text-align: left;
+  background-color: white;
+  color: white;
+  padding: 13px 15px 13px 15px !important;
+}
+
+/* <<<<<<<<<<<<<<Second Page>>>>>>>>>>>>>>>>>*/
+.programShowDiv {
+  width: 100%;
+      margin-top: 15px;
+  padding: 20px;
+  border: 2px solid black;
+      margin-bottom: 20px;
+}
+.programName {
+    color: #A85BA6;
+    font-size: 22px;
+	margin-bottom: 0px;
+}
+.programParagraph{
+font-size: 16px;
+}
+.solnButtons
+{
+	border: 1px solid !important;
+	margin-bottom: 18px !important;
+}
+ul.breadcrumb {
+  padding: 5px 0px;
+  list-style: none;
+ 
+}
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: ">\00a0";
+}
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+.breadcrumbdiv{
+	 
+	background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px grey;
+    margin-top: 10px;
+}
+.breadcrumb {
+    
+    background-color: transparent !important; 
+	    margin-top: 5px  !important;
+    margin-bottom: 5px  !important;
+    
+}
+.programOpDiv{
+	width: 100%;
+      margin-top: 10px;
+  background-color: black;
+  border: 2px solid black;
+     /* margin-bottom: 15px;*/
+	  color:white;
+}
+.programOpParagraph{
+	    margin-top: 10px;
+}
+.label-default {
+    background-color: #325438 !important;
+	    padding: 5px!important;
+}
+.div3{
+	width: 100%;
+      margin-top: 10px;
+    margin-bottom: 15px;
+	padding: 0px !important;
+    font-weight: 900 !important;
+}
+button.copy {
+    float: right;
+    height: 32px;
+    width: 62px;
+    color: #fff !important;
+    background-color: black !important;
+    border-color: #ccc !important;
+    font-weight: 700 !important;
+    font-size: 18px;
+}
+
+.solution{
+	padding: 0px !important;
+}
+
+
+/*---------------------------------------------------------------------- Admin Pages Specific CSS -----------------------------------------------------------------*/
+/* Admin Action Div */
+.adminActionsDiv{
+	background-color:#FFFFFF; 
+	border-radius: 5px; 
+	box-shadow: 10px 10px 5px grey; 
+	margin-top: 10px;
+
+}
+
+button#submit {
+ margin: 24px 0px;
+	 width: 100%;
+    
+}
+
+h4#adminActions{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    color: #A85BA6;
+	padding: 0px !important;
+}
+#content {
+	margin:10px 10px 15px 0px;
+	    border-radius: 5px;
+}
+
+#content h1{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    color: #A85BA6;
+	padding: 0px !important;
+}
+/* Admin Actions Buttons */
+.adminActionsBtn
+{
+	border: 1px solid !important;
+    margin-bottom: 18px !important;
+    margin-top: 10px !important;
+    margin-left: 46px !important;
+    margin-right: 15px !important;
+	width: 18% !important;
+	background-color: black;
+	color: white;
+	border-color: white;
+}
+
+/* Admin Page Filter Div */
+.adminPageFilterDiv
+{
+	border: 1px solid !important;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    height: 100px;
+    padding: 9px;
+	border-radius: 5px;
+	    
+}
+
+/* Admin Page Table */
+.adminsTable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.adminsTable td, .adminsTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.adminsTable tr:nth-child(even){background-color: #f2f2f2;}
+
+.adminsTable tr:hover {background-color: #ddd;}
+
+.adminsTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+.adminsTable td{
+	 text-align: center;
+	  max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tableButton_td{
+	width: 7%;
+}
+.tableSmall_td{
+	width: 10%;
+}
+.tableExtraSmall_td{
+	width: 4%;
+}
+
+.tableButton_btn{
+	background: none;
+    background-color: inherit !important;
+    padding: 0;
+    border: 0;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+input#hide {
+    width: 35px;
+    height: 29px;
+}
+
+button#submitCreate {
+        width: 15%;
+	margin-top: 0px;
+    
+}
+
+
+
+
+
+
+
+
+/* report issue*/
+
+button.ReportIssue{
+    width: 110px;
+    margin-left: 51px;
+    margin-top: 23px;
+	 height: 30px;
+	 position: relative;
+    color: #737373;
+    background: white;
+  z-index: 1;
+	 
+	 cursor: pointer;
+  transition:         0.08s ease-in;
+  -o-transition:      0.08s ease-in;
+  -ms-transition:     0.08s ease-in;
+  -moz-transition:    0.08s ease-in;
+  -webkit-transition: 0.08s ease-in;
+      font-weight: 700;
+   
+}
+button.suggestProgram {
+    width: 132px;
+    margin-left: 21px;
+    margin-top: 23px;
+    height: 30px;
+	position: relative;
+    color: #737373;
+    background: white;
+  z-index: 1;
+  cursor: pointer;
+  transition:         0.08s ease-in;
+  -o-transition:      0.08s ease-in;
+  -ms-transition:     0.08s ease-in;
+  -moz-transition:    0.08s ease-in;
+  -webkit-transition: 0.08s ease-in;
+      font-weight: 700;
+    width: 140px;
+}
+.suggestProgram,.ReportIssue{
+  border:1px solid #333;
+  
+}
+.ReportIssue:hover{
+ /* background:#a4a9fd;*/
+}
+.dialog{
+  border:5px solid #666;
+  padding:50px;
+  background:#3A3A3A;
+  position:absolute;
+  display:none;
+   margin: 250px;
+   z-index: 20;
+}
+.dialog label{
+  display:inline-block;
+  color:#cecece;
+}
+input[type=text]{
+  border:1px solid #333;
+  display:inline-block;
+  
+}
+.blur {
+      filter: blur(6px);
+      -webkit-filter: blur(6px);
+      -moz-filter: blur(6px);
+      -o-filter: blur(6px);
+      -ms-filter: blur(6px);
+      }
+	  
+i#btnOK {
+    ont-size: 48px;
+    color: red;
+    font-size: 25px;
+    cursor: pointer;
+    float: right;
+    /* margin-left: 234px; */
+}
+.reportdiv .form-group {
+    margin-bottom: 15px;
+    font-size: 16px;
+   
+}
+/*animation*/
+@import "compass/css3";
+
+@keyframes fadeIn { 
+  from { opacity: 0; } 
+}
+
+
+.animate {
+ 
+  font: italic bold 5em/1 Bodoni, serif;
+  
+  animation: fadeIn 2s infinite alternate;
+}
+/*like and dislike */
+.likeDislikeBtn {
+    float: right;
+    background: black;
+	color: #F2E6F2;
+
+}
+
+/*button animation header*/
+.suggest{
+  -webkit-transition: all 150ms cubic-bezier(0.445, 0.050, 0.550, 0.950); 
+}
+
+.suggest:before{
+  position:absolute;  
+  content:"";
+ 
+  z-index:-1;
+  opacity:0;
+  -webkit-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+
+.suggest:after {
+  content: "";
+  position: absolute;
+  background: #737373;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: -2;
+  -webkit-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+}
+.suggest:hover{
+  color:white;
+  border: 0px #d19b26 solid;
+}
+.suggest:hover:before {
+  opacity: .8;
+}
+.suggest:hover:after {
+  top: 0;
+}
+i.fa.fa-thumbs-o-down, i.fa.fa-thumbs-o-up {
+    font-size: 25px;
+}
+
+
+
+
+
+
+
+.activePagination{
+	background-color: #c0bfbf !important;
+}
+
+.disabled {
+    /* pointer-events:none;  */
+    cursor: not-allowed;
+    opacity:0.6;
+}
