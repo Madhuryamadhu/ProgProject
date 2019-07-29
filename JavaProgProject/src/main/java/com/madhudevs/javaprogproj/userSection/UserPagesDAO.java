@@ -177,9 +177,9 @@ public class UserPagesDAO {
 				Query<Object[]> q = session.createQuery(cr).setFirstResult(bean.getPageNumber())
 						.setMaxResults(bean.getPerPageCount());
 				List<Object[]> list = q.getResultList();
-				programMap = new HashMap<>();
-				likeCountMap = new HashMap<>();
-				dislikeCountMap = new HashMap<>();
+				programMap = new HashMap<Integer, String>();
+				likeCountMap = new HashMap<Integer, String>();
+				dislikeCountMap = new HashMap<Integer, String>();
 				for (Object[] objects : list) {
 					logger.info((Integer) objects[0] + "  " + (String) objects[1]);
 					programMap.put((Integer) objects[0], (String) objects[1]);
@@ -232,7 +232,7 @@ public class UserPagesDAO {
 			
 			List<TypeBean> results = query.getResultList();
 			
-			typeMap=new HashMap<>();
+			typeMap=new HashMap<Integer, String>();
 			for (TypeBean typeBean : results) {
 				typeMap.put(typeBean.getTypeId(), typeBean.getTypeName());
 			}
@@ -273,7 +273,7 @@ public class UserPagesDAO {
 			 
 			Query<ComplexityBean> query = session.createQuery(cr);
 			List<ComplexityBean> results = query.getResultList();
-			complexityMap=new HashMap<>();
+			complexityMap=new HashMap<Integer, String>();
 			for (ComplexityBean complexityBean : results) {
 				complexityMap.put(complexityBean.getComplexityId(), complexityBean.getComplexityName());
 			}

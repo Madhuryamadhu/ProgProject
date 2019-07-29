@@ -92,7 +92,7 @@ public class AdminPageDAO {
 			bean.setTotalCountofPages(totalCountOfPagesRequired);
 		    if (totalProgCount>0) {
 		    	programsList=new LinkedList<LinkedList<String>>();
-		    	LinkedList<String> programHeaderList=new LinkedList<>();
+		    	LinkedList<String> programHeaderList=new LinkedList<String>();
 		    	programHeaderList.add("ID");
 		    	programHeaderList.add("Program Name");
 		    	programHeaderList.add("Type");
@@ -128,9 +128,8 @@ public class AdminPageDAO {
 						.setMaxResults(bean.getPerPageCount());
 				List<Object[]> list = q.getResultList();
 				
-				//programsList=new LinkedList<>();
 				for (Object[] objects : list) {
-					LinkedList<String> programList=new LinkedList<>();
+					LinkedList<String> programList=new LinkedList<String>();
 					programList.add(objects[0]+"");
 					programList.add(objects[1]+"");
 					programList.add(objects[2]+"");
@@ -213,7 +212,6 @@ public class AdminPageDAO {
 	}
 
 	public boolean loadPagramDetailsForModify(AdminPagesBean bean) {
-		HashMap<Integer, String> programMap=null;
 		SessionFactory factory=null;
 		Session session=null;
 		Transaction tr=null;
@@ -242,7 +240,6 @@ public class AdminPageDAO {
 			 Query<Object[]> q=session.createQuery(cr);
 	         List<Object[]> list=q.getResultList();
 
-	         programMap=new HashMap<>();
 	         for (Object[] objects : list) {
 	        	 bean.setType((Integer)objects[0]);
 	        	 bean.setProgName((String)objects[1]);
