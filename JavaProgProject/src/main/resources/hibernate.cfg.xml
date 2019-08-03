@@ -11,9 +11,9 @@
       <!-- <property name="connection.url">jdbc:mysql://localhost:3306/madhu_devs_prog_db?serverTimezone=UTC&amp;useSSL=false</property> -->
       
       
-      <property name="connection.url">jdbc:mysql://node43064-alljavaprograms.cloud.cms500.com/madhu_devs_prog_db?serverTimezone=UTC&amp;useSSL=false</property>
+      <property name="connection.url">jdbc:mysql://node43067-env-1940674.cloud.cms500.com/madhu_devs_prog_db?serverTimezone=UTC&amp;useSSL=false</property>
       <property name="connection.username">root</property>
-      <property name="connection.password">GSBnfc17283</property>
+      <property name="connection.password">KDYmxe85116</property>
       <!-- <property name="connection.password">root</property> -->
  
       <!-- JDBC connection pool (use the built-in) -->
