@@ -657,7 +657,7 @@ public class AdminPageDAO {
 
 	         for (Object[] objects : list) {
 	        	 bean.setTypeName(objects[0]+"");
-	        	 bean.setIsHidden((int)objects[1]);
+	        	 bean.setIsHidden((Integer)objects[1]);
 	         }
 			
 			tr.commit();
