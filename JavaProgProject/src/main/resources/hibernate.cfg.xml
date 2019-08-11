@@ -8,13 +8,12 @@
   <session-factory>
       <!-- Database connection settings -->
       <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-      <property name="connection.url">jdbc:mysql://localhost:3306/madhu_devs_prog_db?serverTimezone=UTC&amp;useSSL=false</property>
+      <property name="connection.url">jdbc:mysql://node29374-alljavaprograms.mj.milesweb.cloud/madhu_devs_prog_db?serverTimezone=UTC&amp;useSSL=false</property>
       
       
       <!-- <property name="connection.url">jdbc:mysql://node43067-env-1940674.cloud.cms500.com/madhu_devs_prog_db?serverTimezone=UTC&amp;useSSL=false</property> -->
       <property name="connection.username">root</property>
-     <!--  <property name="connection.password">KDYmxe85116</property> -->
-      <property name="connection.password">root</property>
+      <property name="connection.password">VXYila49283</property>
  
       <!-- JDBC connection pool (use the built-in) -->
       <property name="connection.pool_size">5</property>
