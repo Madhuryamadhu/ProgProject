@@ -14,7 +14,7 @@ public class TypeBean {
 
 	@Id
 	@Column(name="TYPE_ID")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int typeId;
 	
 	@Column(name="TYPE_NAME")

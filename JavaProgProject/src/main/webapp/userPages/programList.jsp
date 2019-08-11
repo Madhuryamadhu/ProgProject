@@ -15,15 +15,19 @@
                   <select class="form-control" id="complexity"></select>
                </div>
                <div class="form-group col-lg-4 col-md-12 col-sm-12">
-                  <button type="submit" class="btn btn-default filterSubmitBtn col-lg-5 col-md-12 col-sm-12" onclick="loadPrograms(false,'0','10')">Submit</button>
-                   <button class="btn btn-default filterSubmitBtn col-lg-5 col-md-12 col-sm-12" onclick="resetPrograms()">Reset</button>
+                 <div class="col-lg-6 col-md-12 col-sm-12">
+             	    <button type="submit" class="btn btn-default filterSubmitBtn col-lg-12 col-md-12 col-sm-12" onclick="loadPrograms(false,'0','10')">Submit</button>
+                 </div>
+                 <div class="col-lg-6 col-md-12 col-sm-12">
+            	     <button class="btn btn-default filterSubmitBtn col-lg-12 col-md-12 col-sm-12" onclick="resetPrograms()">Reset</button>
+                 </div>
                </div>
             </div>
          </div>
          
          <!-- PROGRAM LIST SECTION -->
          <div class="progContentDiv col-lg-12 col-md-12 col-sm-12">
-            <h1>List Of Java Programs</h1>
+            <h1 class="h1BlackBold">List Of Java Programs</h1>
             <p>Click on the program to view the solution.Use the filter to search quickly!!</p>
             <table class="userTable" id="programTable"></table>
             <div class="col-lg-12 col-md-12 col-sm-12" id="paginationDiv"></div>

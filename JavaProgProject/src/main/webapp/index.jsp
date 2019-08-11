@@ -14,9 +14,9 @@
   	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
  	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
  	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
- 	 
 </head>
 <body class="container">
+<img class="spinner hide" style="position:fixed;height:40px;width: 40px;min-width: 20px;margin-left: -10px;min-height: 20px;margin-bottom: -10px;left: 50%;top: 50%;z-index: 99999;" src="${pageContext.request.contextPath}/resources/images/backgrounds/spinner.svg" />
 <div id="indexContainer">
 <!-- HEADER DIVISION -->
  <div class="col-lg-12 col-md-12 col-sm-12">
@@ -25,7 +25,7 @@
 				<img src="${pageContext.request.contextPath}/resources/images/backgrounds/programslogo.jpg" class="logoImage" alt="Paris" width="70" height="70" />
 			</div>
 			<div class="col-lg-6 col-md-7 col-sm-7">
-				<h1><a onclick="loadPage('1')">all<strong>PROGRAMS</strong></a></h1>
+				<h1><a>all<strong>PROGRAMS</strong></a></h1>
 				<h2>For all your program needs.</h2>
 			</div>
 			<div class="col-lg-2 col-md-7 col-sm-7">
@@ -39,16 +39,16 @@
 	
 	<!-- USER PAGE CONTENT DIVISION -->
 	<div id="userPageContent" class="col-lg-9 col-md-12 col-sm-12" style="padding-left: 0px !important;" ></div>
-	
+	<div class="messageDiv"><p id="alertText"></p></div>
 	
 	<!-- ADMIN PAGE CONTENT DIVISION -->
-	<div id="adminPageContent" class="col-lg-12 col-md-12 col-sm-12" style="padding-left: 0px !important;"></div>
+	<div id="adminPageContent" class="col-lg-12 col-md-12 col-sm-12" style="padding-left: 0px !important;padding-right: 0px !important;"></div>
 	
 	
 	<!-- SIDE BAR DIVISION -->
 	<div class="sidebarDiv col-lg-3 col-md-12 col-sm-12" id="sidebarDiv">
 		<div  class="col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 48px;">
-			<center> <h1 id="headerSideBar" >TYPES</h1></center>
+			<center> <h1 id="headerSideBar" class="h1BlackBold">TYPES</h1></center>
 			<table class="userTable" id="typesTable"></table>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12">
@@ -115,6 +115,8 @@
 	</div>
 	
   </div>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/json-serialization.js" ></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/session.js" ></script>
 </body>
 <script type="text/javascript">
 
@@ -122,16 +124,16 @@
 var typeMap;
 
 $(document).ready(function() {
-	
+	if(!(isValid(Session.get('likeList'))&&isValid(Session.get('dislikeList')))){
+		Session.set("likeList", "dummy");
+		Session.set("dislikeList", "dummy");
+	}
 	var element = document.getElementById("indexContainer");
 	$("#myform").hide();
     $(".suggestProgram").click(function() {
         $("#myform").show(1000);
 		 
         element.classList.add("blur");
-          /*setTimeout(function() {
-            element.classList.remove("blur");
-          }, 5000);*/
     });
     $("#btnOK").click(function() {
        
@@ -141,15 +143,36 @@ $(document).ready(function() {
 	
 	
 	loadPage('0');
-	
-	setTimeout(getTypeDetails(),3000);
-	
-	
-	
-	
+	getTypeDetails();
+	setTimeout(function(){buildListTableContent('typesTable',typeMap,'loadBasedOnType');  }, 100);
+});
+
+
+$(document).ajaxStart(function () {
+  $('.spinner').removeClass('hide');
+  $('#indexContainer').addClass('noPointerEvent');
+}).ajaxStop(function () {
+	$('.spinner').addClass('hide');
+	$('#indexContainer').removeClass('noPointerEvent');
+});
+
+var map = {18: false, 77: false, 80: false};
+$(document).keydown(function(e) {
+    if (e.keyCode in map) {
+        map[e.keyCode] = true;
+        if (map[18] && map[77]&& map[80]) {
+        	loadPage('1');
+        }
+    }
+}).keyup(function(e) {
+    if (e.keyCode in map) {
+        map[e.keyCode] = false;
+    }
 });
 
 function loadPage(pageId) {
+	
+	
 	var dataArray = {}
 	dataArray["pageId"]=pageId;    //0- userPages   ||   1-adminPages
 	$.ajax({
@@ -194,7 +217,6 @@ function getTypeDetails() {
 			success : function(data) {
 				if (data.status == 0) {
 					typeMap=data.typeMap;
-					buildListTableContent('typesTable',typeMap,'loadBasedOnType');
 				}
 			},
 			error : function(e) {
@@ -222,12 +244,19 @@ function loadBasedOnType(typeId){
 
 
 //COMMON FUNCTIONS
+
+function isValid(value){
+	if(value==null||value==''||value=='undefined'||value=='NaN'||value=='null')
+		return false;
+	
+	return true;
+}
 function buildListTableContent(id,map,onlickFunction){
 	$('#'+id).empty();
 	var listTableContent="";
 	for (var key in map) {
 	    if (map.hasOwnProperty(key)) {  
-	    	listTableContent +='<tr><th id="th_'+id+'_'+key+'"> <a onclick="'+onlickFunction+'(\''+key+'\')">'+map[key]+'</a></th></tr>';
+	    	listTableContent +='<tr><th id="th_'+id+'_'+key+'"> <a class="listTableContent" onclick="'+onlickFunction+'(\''+key+'\')">'+map[key]+'</a></th></tr>';
 	    }
 	}
 	$('#'+id).append(listTableContent);
@@ -345,6 +374,9 @@ function buildPagination(totalPages,onclickFunction,divId){
     	  case '3':
     		  button='<button type="submit" class="btn-default tableButton_btn" onclick="'+onclickFunction+';" ><i class="fa fa-eye-slash" style="color: black; font-size: 20px !important;"></i></button>';
       	    break;
+    	  case '4':
+       		  button='<button type="submit" class="btn-default tableButton_btn" onclick="'+onclickFunction+';" ><i class="fa fa-ban" style="color: black; font-size: 20px !important;"></i></button>';
+       	    break;
     	  default:
     		  button='<button type="submit" class="btn-default tableButton_btn" >NA</button>';
     	}
@@ -373,6 +405,18 @@ function buildPagination(totalPages,onclickFunction,divId){
    		});
     }
 	
-	
+	function showAlert(text,result){
+		$('#alertText').append(text);
+		if(result=='error')
+			$('#alertText').css('color','#fa4040');
+		else
+			$('#alertText').css('color','#42d542');
+		$(".messageDiv").addClass("show");
+		setTimeout(function(){  
+			$(".messageDiv").removeClass("show"); 
+			$('#alertText').empty();
+		}, 3000);
+		
+	}
 </script>
 </html>

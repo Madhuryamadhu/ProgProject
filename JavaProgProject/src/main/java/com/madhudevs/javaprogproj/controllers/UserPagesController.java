@@ -34,7 +34,7 @@ public class UserPagesController {
 				return "/userPages/programList";
 			}else if(bean.getPageId().equals("1")){
 				bean.setStatus(0);
-				return "/adminPages/adminMainPage";
+				return "/adminPages/login/adminLogin";
 			}
 		} catch (Exception e) {
 			logger.error("Exception occured",e);
@@ -53,6 +53,7 @@ public class UserPagesController {
 			}else {
 				bean.setStatus(1);
 			}
+			
 		} catch (Exception e) {
 			logger.error("Exception occured",e);
 		}

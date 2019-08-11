@@ -6,7 +6,8 @@ import java.util.List;
 
 public class AdminPagesBean {
 
-	
+	private String username;
+	private String password;
 	private String pagePath;
 	private HashMap<String, String> parameters;
 	
@@ -25,7 +26,63 @@ public class AdminPagesBean {
 	private String prog1;
 	private String output1;
 	
+	private List<LinkedList<String>> typeList;
+	private String typeName;
+	private int adminLevel;
+	private int adminId;
+	private int adminIsActive;
 	
+	
+	public int getAdminIsActive() {
+		return adminIsActive;
+	}
+	public void setAdminIsActive(int adminIsActive) {
+		this.adminIsActive = adminIsActive;
+	}
+	private List<LinkedList<String>> adminsList;
+	
+	public List<LinkedList<String>> getAdminsList() {
+		return adminsList;
+	}
+	public void setAdminsList(List<LinkedList<String>> adminsList) {
+		this.adminsList = adminsList;
+	}
+	public int getAdminId() {
+		return adminId;
+	}
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
+	}
+	public int getAdminLevel() {
+		return adminLevel;
+	}
+	public void setAdminLevel(int adminLevel) {
+		this.adminLevel = adminLevel;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getTypeName() {
+		return typeName;
+	}
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}
+	public List<LinkedList<String>> getTypeList() {
+		return typeList;
+	}
+	public void setTypeList(List<LinkedList<String>> typeList) {
+		this.typeList = typeList;
+	}
 	public int getIsHidden() {
 		return isHidden;
 	}
@@ -120,6 +177,16 @@ public class AdminPagesBean {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("AdminPagesBean [");
+		if (username != null) {
+			builder.append("username=");
+			builder.append(username);
+			builder.append(", ");
+		}
+		if (password != null) {
+			builder.append("password=");
+			builder.append(password);
+			builder.append(", ");
+		}
 		if (pagePath != null) {
 			builder.append("pagePath=");
 			builder.append(pagePath);
@@ -142,6 +209,8 @@ public class AdminPagesBean {
 		builder.append(perPageCount);
 		builder.append(", pageNumber=");
 		builder.append(pageNumber);
+		builder.append(", adminIsActive=");
+		builder.append(adminIsActive);
 		builder.append(", totalCountofPages=");
 		builder.append(totalCountofPages);
 		builder.append(", type=");
@@ -172,10 +241,31 @@ public class AdminPagesBean {
 		if (output1 != null) {
 			builder.append("output1=");
 			builder.append(output1);
+			builder.append(", ");
+		}
+		if (typeList != null) {
+			builder.append("typeList=");
+			builder.append(typeList);
+			builder.append(", ");
+		}
+		if (typeName != null) {
+			builder.append("typeName=");
+			builder.append(typeName);
+			builder.append(", ");
+		}
+		builder.append("adminLevel=");
+		builder.append(adminLevel);
+		builder.append(", adminId=");
+		builder.append(adminId);
+		builder.append(", ");
+		if (adminsList != null) {
+			builder.append("adminsList=");
+			builder.append(adminsList);
 		}
 		builder.append("]");
 		return builder.toString();
 	}
+	
 	
 	
 	

@@ -10,6 +10,9 @@ body {
 	color:#777;
 }
 
+button{
+	outline: none;
+}
 /* Create Button on table */
 button.createBtnTable {
     width: 140px;
@@ -120,7 +123,11 @@ button.createBtnTable:hover {
 .progContentDiv h1 {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 23px;
-    color: #A85BA6;
+}
+
+.h1BlackBold{
+	color: #00171F !important;
+    font-weight: bold !important;
 }
 
 .progFilterDiv{
@@ -176,8 +183,8 @@ button.createBtnTable:hover {
 /* <<<<<<<<<<<<<<Second Page>>>>>>>>>>>>>>>>>*/
 .programShowDiv {
   width: 100%;
-      margin-top: 15px;
-  padding: 20px;
+      margin-top: 8px;
+  padding: 10px !important;
   border: 2px solid black;
       margin-bottom: 20px;
 }
@@ -235,7 +242,7 @@ ul.breadcrumb li a:hover {
       margin-top: 10px;
   background-color: black;
   border: 2px solid black;
-     /* margin-bottom: 15px;*/
+    margin-bottom: 80px;
 	  color:white;
 }
 .programOpParagraph{
@@ -248,7 +255,7 @@ ul.breadcrumb li a:hover {
 .div3{
 	width: 100%;
       margin-top: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 	padding: 0px !important;
     font-weight: 900 !important;
 }
@@ -394,7 +401,10 @@ button#submitCreate {
     
 }
 
-
+.checkBox {
+    width: 35px;
+    height: 29px;
+}
 
 
 
@@ -471,6 +481,7 @@ input[type=text]{
       -moz-filter: blur(6px);
       -o-filter: blur(6px);
       -ms-filter: blur(6px);
+      pointer-events: none;
       }
 	  
 i#btnOK {
@@ -557,8 +568,81 @@ i.fa.fa-thumbs-o-down, i.fa.fa-thumbs-o-up {
 	background-color: #c0bfbf !important;
 }
 
+.page-link{
+	color: black !important;
+}
 .disabled {
     /* pointer-events:none;  */
     cursor: not-allowed;
     opacity:0.6;
+}
+
+
+.listTableContent{
+	    font-size: 20px;
+	    color: #00171F;
+}
+
+
+
+
+/* Toast to show the messages */
+
+.hide{
+	display: none;
+}
+.messageDiv{
+	visibility: hidden;
+	background-color: black; 
+	color:white; 
+	height:auto; 
+	width: 400px; 
+	z-index: 3;
+	border-radius: 5px; 
+	position:fixed;
+	text-align: center;
+	left: 43%;
+	/* margin-top: 30px;     */
+	min-width: 300px;
+    margin-left: -150px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    top : 100px;
+    word-wrap: break-word;
+}
+.messageDiv p{
+	margin-top: 10px;
+}
+
+.messageDiv.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 100px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 100px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 100px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 100px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
+
+.noPointerEvent{
+pointer-events: none;	
 }

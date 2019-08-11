@@ -4,13 +4,23 @@
 <html>
    <head></head>
    <body>
-      <div id="fullcontent">
          <div class="container adminActionsDiv col-lg-12 col-md-12 col-sm-12">
-            <h4 id="adminActions">Admin Actions</h4>
-            <button type="button" class="btn adminActionsBtn">Programs</button>
-            <button type="button" class="btn adminActionsBtn">Issues</button>
-            <button type="button" class="btn adminActionsBtn">Types</button>
-            <button type="button" class="btn adminActionsBtn">Admins</button>
+           <div class="col-lg-12 col-md-12 col-sm-12">
+	           <div class="col-lg-6 col-md-12 col-sm-12">
+	              <h4 id="adminActions">Admin Actions</h4>
+	           </div>
+	           <div class="col-lg-6 col-md-12 col-sm-12">
+	          	  <button type="submit" onclick="hideShowAction()" class="btn-default tableButton_btn pull-right" style="margin-top: 12px; margin-right: -31px;"><i class="fa fa-angle-double-down" style="color: #A85BA6; font-size: 33px !important;"></i></button>
+	           </div>
+           </div>
+           <div id="actionBtns" class="col-lg-12 col-md-12 col-sm-12 hide">
+	            <button type="button" class="btn adminActionsBtn">Programs</button>
+	            <button type="button" class="btn adminActionsBtn">Issues</button>
+	            <button type="button" class="btn adminActionsBtn" onclick="loadAdminSectionPages('types')">Types</button>
+	            <button type="button" class="btn adminActionsBtn" onclick="loadAdminSectionPages('admins')">Admins</button>
+	            <button type="button" class="btn adminActionsBtn" onclick="goToHomePage()">HomePage</button>
+	            <button type="button" class="btn adminActionsBtn" onclick="logout()">Logout</button>
+            </div>
          </div>
          <div class="col-lg-12 col-md-12 col-sm-12" id="content" style="background-color:#FFFFFF; box-shadow: 10px 10px 5px grey;">
             <h1>Program Details</h1>
@@ -31,7 +41,6 @@
             <table class="adminsTable" id="adminProgTable"></table>
             <div class="col-lg-12 col-md-12 col-sm-12" id="paginationDivAdmin"></div>
          </div>
-      </div>
    </body>
     <script type="text/javascript">
     $(document).ready(function() {
@@ -120,7 +129,10 @@
   			timeout : 100000,
   			success : function(data) {
   				if(data.status==0){
+  					showAlert('Program deleted successfully','success');
   					loadProgramsForAdmin(false,'0','10');
+  				}else{
+  					showAlert('Program deletion failed','error');
   				}
   			},
   			error : function(e) {
@@ -162,6 +174,58 @@
 		});
   }
     
+  
+  function loadAdminSectionPages(page){
+	  var paremeters = {};
+	  if(page=='types'){
+		  loadNewPage('/adminPages/viewTypes.jsp',paremeters,'content');
+	  }else if(page=='admins'){
+		  loadNewPage('/adminPages/admin/viewAdmins.jsp',paremeters,'content');
+	  }
+		  
+		
+  }
+  
+  
+  function logout(){
+	   var dataArray = {};
+		$.ajax({
+			type : "POST",
+			contentType : "application/json",
+			url : "logout",
+			data : JSON.stringify(dataArray),
+			dataType : 'json',
+			timeout : 100000,
+			success : function(data) {
+				if(data.status==0){
+					showAlert('Logout Successful','success');
+					loadPage('0');
+				}else{
+					showAlert('Logout Failed','error');
+				}
+			},
+			error : function(e) {
+				console.log("getTypeDetails DONE");
+				console.log("ERROR: ", e);
+			},
+			done : function(e) {
+				console.log("getTypeDetails DONE");
+			}
+		});
+}
+  
+  function goToHomePage(){
+	   loadPage('0');
+  }
+  
+  
+  function hideShowAction(){
+	  if($('#actionBtns').hasClass('hide')){
+		  $('#actionBtns').removeClass('hide');
+	  }else{
+		  $('#actionBtns').addClass('hide');
+	  }
+  }
     </script>
     
 </html>
